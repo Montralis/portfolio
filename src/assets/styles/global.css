@@ -1,0 +1,23 @@
+body {
+  font-family: 'Roboto Mono', sans-serif;
+  color: #fff;
+  font-weight: 400;
+  height: 100%;
+  width: 100%;
+  background-color: #2e2ea7;
+  ;
+}
+
+path {
+  fill: currentColor;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
