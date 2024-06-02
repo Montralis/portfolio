@@ -83,7 +83,7 @@
                     </ul>
                 </li>
                 <div class="hero__copyright">
-                    © 2023 Leon Thomanek | Germany
+                    © {{currentYear}} Leon Thomanek | Germany
                 </div>
             </div>
         </div>
@@ -98,44 +98,28 @@ export default {
         return {
             currentLanguage: 'eng',
             isMouseMoving: true,
+            currentYear: new Date().getFullYear()
         };
     },
     mounted() {
         document.addEventListener('mousemove', this.parallax);
-        this.randomMove();
-        setInterval(this.randomMove, 10); // randomMove wird alle 1000 Millisekunden (1 Sekunde) aufgerufen
     },
     beforeUnmount() {
         document.removeEventListener('mousemove', this.parallax);
     },
     methods: {
-        getRandomNumber(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        },
         parallax(e) {
             this.isMouseMoving = true;
             document
                 .querySelectorAll('.background-img')
                 .forEach(function (move) {
                     var moving_value = move.getAttribute('data-value');
-                    var x = (e.clientX * moving_value) / 250;
-                    var y = (e.clientY * moving_value) / 250;
+                    var x = (e.clientX * moving_value) / 80;
+                    var y = (e.clientY * moving_value) / 80;
 
                     move.style.transform =
                         'translateX(' + x + 'px) translateY(' + y + 'px)';
                 });
-        },
-        randomMove() {
-            if (!this.isMouseMoving) {
-                document.querySelectorAll('.background-img').forEach((move) => {
-                    var moving_value = move.getAttribute('data-value');
-                    var x = (this.getRandomNumber(0, 100) * moving_value) / 250;
-                    var y = (this.getRandomNumber(0, 100) * moving_value) / 250;
-
-                    move.style.transform =
-                        'translateX(' + x + 'px) translateY(' + y + 'px)';
-                });
-            }
         },
         setLanguage(lang) {
             this.currentLanguage = lang;

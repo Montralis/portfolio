@@ -1,0 +1,17 @@
+[
+    {
+        "destination": "Paris",
+        "frameColor": "#234223",
+        "date": "2023-06-01"
+    },
+    {
+        "destination": "New York",
+        "frameColor": "#945f31",
+        "date": "2023-07-15"
+    },
+    {
+        "destination": "Tokyo",
+        "frameColor": "#cfe884",
+        "date": "2023-08-20"
+    }
+]
